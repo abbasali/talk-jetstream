@@ -3902,6 +3902,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -3922,7 +3927,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       form: this.$inertia.form({
-        name: '',
+        first_name: '',
+        last_name: '',
         email: '',
         password: '',
         password_confirmation: '',
@@ -5060,6 +5066,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5082,7 +5094,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: this.$inertia.form({
         _method: 'PUT',
-        name: this.user.name,
+        first_name: this.user.first_name,
+        last_name: this.user.last_name,
         email: this.user.email,
         photo: null
       }),
@@ -30497,7 +30510,9 @@ var render = function() {
                                                 src:
                                                   _vm.$page.props.user
                                                     .profile_photo_url,
-                                                alt: _vm.$page.props.user.name
+                                                alt:
+                                                  _vm.$page.props.user
+                                                    .first_name
                                               }
                                             })
                                           ]
@@ -30520,7 +30535,8 @@ var render = function() {
                                                 _vm._v(
                                                   "\n                                            " +
                                                     _vm._s(
-                                                      _vm.$page.props.user.name
+                                                      _vm.$page.props.user
+                                                        .first_name
                                                     ) +
                                                     "\n\n                                            "
                                                 ),
@@ -30749,7 +30765,7 @@ var render = function() {
                                 "h-10 w-10 rounded-full object-cover",
                               attrs: {
                                 src: _vm.$page.props.user.profile_photo_url,
-                                alt: _vm.$page.props.user.name
+                                alt: _vm.$page.props.user.first_name
                               }
                             })
                           ])
@@ -30761,7 +30777,7 @@ var render = function() {
                           {
                             staticClass: "font-medium text-base text-gray-800"
                           },
-                          [_vm._v(_vm._s(_vm.$page.props.user.name))]
+                          [_vm._v(_vm._s(_vm.$page.props.user.first_name))]
                         ),
                         _vm._v(" "),
                         _c(
@@ -32061,23 +32077,54 @@ var render = function() {
           _c(
             "div",
             [
-              _c("jet-label", { attrs: { for: "name", value: "Name" } }),
+              _c("jet-label", {
+                attrs: { for: "first_name", value: "First Name" }
+              }),
               _vm._v(" "),
               _c("jet-input", {
                 staticClass: "mt-1 block w-full",
                 attrs: {
-                  id: "name",
+                  id: "first_name",
                   type: "text",
                   required: "",
                   autofocus: "",
-                  autocomplete: "name"
+                  autocomplete: "first_name"
                 },
                 model: {
-                  value: _vm.form.name,
+                  value: _vm.form.first_name,
                   callback: function($$v) {
-                    _vm.$set(_vm.form, "name", $$v)
+                    _vm.$set(_vm.form, "first_name", $$v)
                   },
-                  expression: "form.name"
+                  expression: "form.first_name"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "mt-4" },
+            [
+              _c("jet-label", {
+                attrs: { for: "last_name", value: "Last Name" }
+              }),
+              _vm._v(" "),
+              _c("jet-input", {
+                staticClass: "mt-1 block w-full",
+                attrs: {
+                  id: "last_name",
+                  type: "text",
+                  required: "",
+                  autofocus: "",
+                  autocomplete: "last_name"
+                },
+                model: {
+                  value: _vm.form.last_name,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "last_name", $$v)
+                  },
+                  expression: "form.last_name"
                 }
               })
             ],
@@ -33908,7 +33955,7 @@ var render = function() {
                           staticClass: "rounded-full h-20 w-20 object-cover",
                           attrs: {
                             src: _vm.user.profile_photo_url,
-                            alt: _vm.user.name
+                            alt: _vm.user.first_name
                           }
                         })
                       ]
@@ -33991,23 +34038,61 @@ var render = function() {
               "div",
               { staticClass: "col-span-6 sm:col-span-4" },
               [
-                _c("jet-label", { attrs: { for: "name", value: "Name" } }),
+                _c("jet-label", {
+                  attrs: { for: "first_name", value: "First Name" }
+                }),
                 _vm._v(" "),
                 _c("jet-input", {
                   staticClass: "mt-1 block w-full",
-                  attrs: { id: "name", type: "text", autocomplete: "name" },
+                  attrs: {
+                    id: "first_name",
+                    type: "text",
+                    autocomplete: "first_name"
+                  },
                   model: {
-                    value: _vm.form.name,
+                    value: _vm.form.first_name,
                     callback: function($$v) {
-                      _vm.$set(_vm.form, "name", $$v)
+                      _vm.$set(_vm.form, "first_name", $$v)
                     },
-                    expression: "form.name"
+                    expression: "form.first_name"
                   }
                 }),
                 _vm._v(" "),
                 _c("jet-input-error", {
                   staticClass: "mt-2",
-                  attrs: { message: _vm.form.errors.name }
+                  attrs: { message: _vm.form.errors.first_name }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "col-span-6 sm:col-span-4" },
+              [
+                _c("jet-label", {
+                  attrs: { for: "last_name", value: "Last Name" }
+                }),
+                _vm._v(" "),
+                _c("jet-input", {
+                  staticClass: "mt-1 block w-full",
+                  attrs: {
+                    id: "last_name",
+                    type: "text",
+                    autocomplete: "last_name"
+                  },
+                  model: {
+                    value: _vm.form.last_name,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "last_name", $$v)
+                    },
+                    expression: "form.last_name"
+                  }
+                }),
+                _vm._v(" "),
+                _c("jet-input-error", {
+                  staticClass: "mt-2",
+                  attrs: { message: _vm.form.errors.last_name }
                 })
               ],
               1
